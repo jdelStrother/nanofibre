@@ -1,0 +1,455 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 42;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8D11072A0486CEB800E47090 /* MainMenu.nib in Resources */ = {isa = PBXBuildFile; fileRef = 29B97318FDCFA39411CA2CEA /* MainMenu.nib */; };
+		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
+		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
+		FC0F2A040AE04E6C00C72116 /* main_daemon.m in Sources */ = {isa = PBXBuildFile; fileRef = FC0F29B60AE04D1000C72116 /* main_daemon.m */; };
+		FC0F2B380AE25E9D00C72116 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC0F2B370AE25E9D00C72116 /* Cocoa.framework */; };
+		FC0F2B3E0AE25ECF00C72116 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC0F2B3D0AE25ECF00C72116 /* Carbon.framework */; };
+		FC0F2B410AE25ED100C72116 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC0F2B370AE25E9D00C72116 /* Cocoa.framework */; };
+		FCB47F340AD990FE00634969 /* HumanDiskSizeTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB47F330AD990FE00634969 /* HumanDiskSizeTransformer.m */; };
+		FCB4800A0AD9A53200634969 /* MusicLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB480090AD9A53200634969 /* MusicLibrary.m */; };
+		FCBD155A0AD9ABD8004C200C /* NSAppleEventDescriptor+NDAppleScriptObject.m in Sources */ = {isa = PBXBuildFile; fileRef = FCBD15590AD9ABD8004C200C /* NSAppleEventDescriptor+NDAppleScriptObject.m */; };
+		FCBD155E0AD9ABE7004C200C /* NSURL+NDCarbonUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = FCBD155C0AD9ABE7004C200C /* NSURL+NDCarbonUtilities.m */; };
+		FCBD15930AD9AD5C004C200C /* NSAppleScript+HandlerCalls.m in Sources */ = {isa = PBXBuildFile; fileRef = FCBD15910AD9AD5C004C200C /* NSAppleScript+HandlerCalls.m */; };
+		FCBD15C00AD9AE1F004C200C /* NSString+NDCarbonUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = FCBD15BE0AD9AE1F004C200C /* NSString+NDCarbonUtilities.m */; };
+		FCBD15E70AD9B010004C200C /* ConstructPlaylist.scpt in Resources */ = {isa = PBXBuildFile; fileRef = FCBD15690AD9AC5C004C200C /* ConstructPlaylist.scpt */; };
+		FCE434D60AD0379000415644 /* AppController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCE434D50AD0379000415644 /* AppController.m */; };
+		FCE435050AD045ED00415644 /* Album.m in Sources */ = {isa = PBXBuildFile; fileRef = FCE435040AD045ED00415644 /* Album.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FC0F2AA80AE0E00B00C72116 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D1107260486CEB800E47090;
+			remoteInfo = Spinner;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		13E42FB307B3F0F600E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
+		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		29B97319FDCFA39411CA2CEA /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/MainMenu.nib; sourceTree = "<group>"; };
+		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
+		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		32CA4F630368D1EE00C91783 /* Fibre_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Fibre_Prefix.pch; sourceTree = "<group>"; };
+		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		8D1107320486CEB800E47090 /* NanoFibre.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = NanoFibre.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FC0F29A70AE04CD700C72116 /* fibred */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = fibred; sourceTree = BUILT_PRODUCTS_DIR; };
+		FC0F29B60AE04D1000C72116 /* main_daemon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main_daemon.m; sourceTree = "<group>"; };
+		FC0F2B370AE25E9D00C72116 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /Developer/SDKs/MacOSX10.4u.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		FC0F2B3D0AE25ECF00C72116 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /Developer/SDKs/MacOSX10.4u.sdk/System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
+		FCB47F320AD990FE00634969 /* HumanDiskSizeTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HumanDiskSizeTransformer.h; sourceTree = "<group>"; };
+		FCB47F330AD990FE00634969 /* HumanDiskSizeTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HumanDiskSizeTransformer.m; sourceTree = "<group>"; };
+		FCB480080AD9A53200634969 /* MusicLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicLibrary.h; sourceTree = "<group>"; };
+		FCB480090AD9A53200634969 /* MusicLibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicLibrary.m; sourceTree = "<group>"; };
+		FCBD15580AD9ABD8004C200C /* NSAppleEventDescriptor+NDAppleScriptObject.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = "NSAppleEventDescriptor+NDAppleScriptObject.h"; sourceTree = "<group>"; };
+		FCBD15590AD9ABD8004C200C /* NSAppleEventDescriptor+NDAppleScriptObject.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = "NSAppleEventDescriptor+NDAppleScriptObject.m"; sourceTree = "<group>"; };
+		FCBD155C0AD9ABE7004C200C /* NSURL+NDCarbonUtilities.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = "NSURL+NDCarbonUtilities.m"; sourceTree = "<group>"; };
+		FCBD155D0AD9ABE7004C200C /* NSURL+NDCarbonUtilities.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = "NSURL+NDCarbonUtilities.h"; sourceTree = "<group>"; };
+		FCBD15690AD9AC5C004C200C /* ConstructPlaylist.scpt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.scpt; path = ConstructPlaylist.scpt; sourceTree = "<group>"; };
+		FCBD15910AD9AD5C004C200C /* NSAppleScript+HandlerCalls.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = "NSAppleScript+HandlerCalls.m"; sourceTree = "<group>"; };
+		FCBD15920AD9AD5C004C200C /* NSAppleScript+HandlerCalls.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = "NSAppleScript+HandlerCalls.h"; sourceTree = "<group>"; };
+		FCBD15BE0AD9AE1F004C200C /* NSString+NDCarbonUtilities.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = "NSString+NDCarbonUtilities.m"; sourceTree = "<group>"; };
+		FCBD15BF0AD9AE1F004C200C /* NSString+NDCarbonUtilities.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = "NSString+NDCarbonUtilities.h"; sourceTree = "<group>"; };
+		FCE434D40AD0379000415644 /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = AppController.h; sourceTree = "<group>"; };
+		FCE434D50AD0379000415644 /* AppController.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = AppController.m; sourceTree = "<group>"; };
+		FCE435030AD045ED00415644 /* Album.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Album.h; sourceTree = "<group>"; };
+		FCE435040AD045ED00415644 /* Album.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Album.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8D11072E0486CEB800E47090 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FC0F2B380AE25E9D00C72116 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FC0F29A50AE04CD700C72116 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FC0F2B410AE25ED100C72116 /* Cocoa.framework in Frameworks */,
+				FC0F2B3E0AE25ECF00C72116 /* Carbon.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		080E96DDFE201D6D7F000001 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				FC0F29810AE0456E00C72116 /* Utilities */,
+				FCE434D40AD0379000415644 /* AppController.h */,
+				FCE434D50AD0379000415644 /* AppController.m */,
+				FCE435030AD045ED00415644 /* Album.h */,
+				FCE435040AD045ED00415644 /* Album.m */,
+				FCB47F320AD990FE00634969 /* HumanDiskSizeTransformer.h */,
+				FCB47F330AD990FE00634969 /* HumanDiskSizeTransformer.m */,
+				FCB480080AD9A53200634969 /* MusicLibrary.h */,
+				FCB480090AD9A53200634969 /* MusicLibrary.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FC0F2B3D0AE25ECF00C72116 /* Carbon.framework */,
+				FC0F2B370AE25E9D00C72116 /* Cocoa.framework */,
+			);
+			name = "Linked Frameworks";
+			sourceTree = "<group>";
+		};
+		1058C7A2FEA54F0111CA2CBB /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				29B97324FDCFA39411CA2CEA /* AppKit.framework */,
+				13E42FB307B3F0F600E4EEF1 /* CoreData.framework */,
+				29B97325FDCFA39411CA2CEA /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		19C28FACFE9D520D11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8D1107320486CEB800E47090 /* NanoFibre.app */,
+				FC0F29A70AE04CD700C72116 /* fibred */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		29B97314FDCFA39411CA2CEA /* Spinner */ = {
+			isa = PBXGroup;
+			children = (
+				080E96DDFE201D6D7F000001 /* Classes */,
+				29B97315FDCFA39411CA2CEA /* Other Sources */,
+				29B97317FDCFA39411CA2CEA /* Resources */,
+				29B97323FDCFA39411CA2CEA /* Frameworks */,
+				19C28FACFE9D520D11CA2CBB /* Products */,
+			);
+			name = Spinner;
+			sourceTree = "<group>";
+		};
+		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				32CA4F630368D1EE00C91783 /* Fibre_Prefix.pch */,
+				29B97316FDCFA39411CA2CEA /* main.m */,
+				FC0F29B60AE04D1000C72116 /* main_daemon.m */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		29B97317FDCFA39411CA2CEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8D1107310486CEB800E47090 /* Info.plist */,
+				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
+				29B97318FDCFA39411CA2CEA /* MainMenu.nib */,
+				FCBD15690AD9AC5C004C200C /* ConstructPlaylist.scpt */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */,
+				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FC0F29810AE0456E00C72116 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				FCBD15580AD9ABD8004C200C /* NSAppleEventDescriptor+NDAppleScriptObject.h */,
+				FCBD15590AD9ABD8004C200C /* NSAppleEventDescriptor+NDAppleScriptObject.m */,
+				FCBD155C0AD9ABE7004C200C /* NSURL+NDCarbonUtilities.m */,
+				FCBD155D0AD9ABE7004C200C /* NSURL+NDCarbonUtilities.h */,
+				FCBD15910AD9AD5C004C200C /* NSAppleScript+HandlerCalls.m */,
+				FCBD15920AD9AD5C004C200C /* NSAppleScript+HandlerCalls.h */,
+				FCBD15BE0AD9AE1F004C200C /* NSString+NDCarbonUtilities.m */,
+				FCBD15BF0AD9AE1F004C200C /* NSString+NDCarbonUtilities.h */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8D1107260486CEB800E47090 /* NanoFibre */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "NanoFibre" */;
+			buildPhases = (
+				8D1107290486CEB800E47090 /* Resources */,
+				8D11072C0486CEB800E47090 /* Sources */,
+				8D11072E0486CEB800E47090 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NanoFibre;
+			productInstallPath = "$(HOME)/Applications";
+			productName = Spinner;
+			productReference = 8D1107320486CEB800E47090 /* NanoFibre.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FC0F29A60AE04CD700C72116 /* fibred */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FC0F29B30AE04D0E00C72116 /* Build configuration list for PBXNativeTarget "fibred" */;
+			buildPhases = (
+				FC0F29A40AE04CD700C72116 /* Sources */,
+				FC0F29A50AE04CD700C72116 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FC0F2AA90AE0E00B00C72116 /* PBXTargetDependency */,
+			);
+			name = fibred;
+			productName = spinnerd;
+			productReference = FC0F29A70AE04CD700C72116 /* fibred */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		29B97313FDCFA39411CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "NanoFibre" */;
+			hasScannedForEncodings = 1;
+			mainGroup = 29B97314FDCFA39411CA2CEA /* Spinner */;
+			projectDirPath = "";
+			targets = (
+				8D1107260486CEB800E47090 /* NanoFibre */,
+				FC0F29A60AE04CD700C72116 /* fibred */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8D1107290486CEB800E47090 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FCBD15E70AD9B010004C200C /* ConstructPlaylist.scpt in Resources */,
+				8D11072A0486CEB800E47090 /* MainMenu.nib in Resources */,
+				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8D11072C0486CEB800E47090 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D11072D0486CEB800E47090 /* main.m in Sources */,
+				FCE434D60AD0379000415644 /* AppController.m in Sources */,
+				FCE435050AD045ED00415644 /* Album.m in Sources */,
+				FCB47F340AD990FE00634969 /* HumanDiskSizeTransformer.m in Sources */,
+				FCB4800A0AD9A53200634969 /* MusicLibrary.m in Sources */,
+				FCBD155A0AD9ABD8004C200C /* NSAppleEventDescriptor+NDAppleScriptObject.m in Sources */,
+				FCBD155E0AD9ABE7004C200C /* NSURL+NDCarbonUtilities.m in Sources */,
+				FCBD15930AD9AD5C004C200C /* NSAppleScript+HandlerCalls.m in Sources */,
+				FCBD15C00AD9AE1F004C200C /* NSString+NDCarbonUtilities.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FC0F29A40AE04CD700C72116 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FC0F2A040AE04E6C00C72116 /* main_daemon.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FC0F2AA90AE0E00B00C72116 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8D1107260486CEB800E47090 /* NanoFibre */;
+			targetProxy = FC0F2AA80AE0E00B00C72116 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		089C165CFE840E0CC02AAC07 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				089C165DFE840E0CC02AAC07 /* English */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		29B97318FDCFA39411CA2CEA /* MainMenu.nib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				29B97319FDCFA39411CA2CEA /* English */,
+			);
+			name = MainMenu.nib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C01FCF4B08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = "\"$(SYSTEM_DEVELOPER_DIR)/SDKs/MacOSX10.4u.sdk/System/Library/Frameworks\"";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREFIX_HEADER = Fibre_Prefix.pch;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				PRODUCT_NAME = NanoFibre;
+				WRAPPER_EXTENSION = app;
+				ZERO_LINK = YES;
+			};
+			name = Debug;
+		};
+		C01FCF4C08A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					ppc,
+					i386,
+				);
+				FRAMEWORK_SEARCH_PATHS = "\"$(SYSTEM_DEVELOPER_DIR)/SDKs/MacOSX10.4u.sdk/System/Library/Frameworks\"";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PREFIX_HEADER = Fibre_Prefix.pch;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				PRODUCT_NAME = NanoFibre;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		C01FCF4F08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Fibre_Prefix.pch;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
+			};
+			name = Debug;
+		};
+		C01FCF5008A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Fibre_Prefix.pch;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
+			};
+			name = Release;
+		};
+		FC0F29B40AE04D0E00C72116 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = ppc;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = "$(FRAMEWORK_SEARCH_PATHS_QUOTED_2)";
+				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"$(SYSTEM_DEVELOPER_DIR)/SDKs/MacOSX10.4.0.sdk/System/Library/Frameworks\"";
+				FRAMEWORK_SEARCH_PATHS_QUOTED_2 = "\"$(SYSTEM_DEVELOPER_DIR)/SDKs/MacOSX10.4u.sdk/System/Library/Frameworks\"";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREFIX_HEADER = Fibre_Prefix.pch;
+				INSTALL_PATH = "$(HOME)/bin";
+				PREBINDING = NO;
+				PRODUCT_NAME = fibred;
+				ZERO_LINK = YES;
+			};
+			name = Debug;
+		};
+		FC0F29B50AE04D0E00C72116 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					ppc,
+					i386,
+				);
+				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(FRAMEWORK_SEARCH_PATHS_QUOTED_2)";
+				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"$(SYSTEM_DEVELOPER_DIR)/SDKs/MacOSX10.4.0.sdk/System/Library/Frameworks\"";
+				FRAMEWORK_SEARCH_PATHS_QUOTED_2 = "\"$(SYSTEM_DEVELOPER_DIR)/SDKs/MacOSX10.4u.sdk/System/Library/Frameworks\"";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PREFIX_HEADER = Fibre_Prefix.pch;
+				INSTALL_PATH = "$(HOME)/bin";
+				PREBINDING = NO;
+				PRODUCT_NAME = fibred;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "NanoFibre" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4B08A954540054247B /* Debug */,
+				C01FCF4C08A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "NanoFibre" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4F08A954540054247B /* Debug */,
+				C01FCF5008A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FC0F29B30AE04D0E00C72116 /* Build configuration list for PBXNativeTarget "fibred" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FC0F29B40AE04D0E00C72116 /* Debug */,
+				FC0F29B50AE04D0E00C72116 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
+}

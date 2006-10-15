@@ -1,0 +1,13 @@
+{
+    IBClasses = (
+        {
+            ACTIONS = {makePlaylist = id; }; 
+            CLASS = AppController; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {sizeLabel = NSTextField; window = NSWindow; }; 
+            SUPERCLASS = NSObject; 
+        }, 
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }
+    ); 
+    IBVersion = 1; 
+}
