@@ -1,9 +1,9 @@
 //
 //  HumanDiskSizeTransformer.m
-//  Fibre
+// NanoFibre
 //
 //  Created by Jonathan del Strother on 08/10/2006.
-//  Copyright 2006 Best Before Media Ltd. All rights reserved.
+//  Copyright 2006. All rights reserved.
 //
 
 #import "HumanDiskSizeTransformer.h"
@@ -48,7 +48,6 @@
     }
 	
 	id returnValue = [NSNumber numberWithFloat:size];
-	NSLog(@"reverse transform : %@ -> %@", value, returnValue);
  
     return returnValue;
 }
@@ -75,9 +74,7 @@
 		returnValue = [NSString stringWithFormat:@"%.0fMB", size*1024];
 	else
 		returnValue = [NSString stringWithFormat:@"%0.3gGB", size];
-		
-	NSLog(@"transform : %@ -> %@", value, returnValue);
- 
+
     return returnValue;
 }
 

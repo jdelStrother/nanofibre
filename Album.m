@@ -1,9 +1,9 @@
 //
 //  Album.m
-//  Fibre
+//  NanoFibre
 //
 //  Created by Jonathan del Strother on 01/10/2006.
-//  Copyright 2006 Best Before Media Ltd. All rights reserved.
+//  Copyright 2006. All rights reserved.
 //
 
 #import "Album.h"
@@ -11,6 +11,22 @@
 
 @implementation Album
 
++(NSString*)albumKeyForTrack:(NSDictionary*)track
+{
+	NSString* albumTitle = [track objectForKey:@"Album"];
+	
+	NSString* artist = [track objectForKey:@"Album Artist"];
+	if (!artist)
+		artist = [track objectForKey:@"Artist"];
+
+	if (!artist) artist=@"";
+	if (!albumTitle) albumTitle=@"";
+	
+
+	return [NSString stringWithFormat:@"%@__%@", artist, albumTitle];
+}
+			
+			
 -(id)init
 {
 	self = [super init];
@@ -19,6 +35,12 @@
 		tracks = [[NSMutableArray alloc] init];
 	}
 	return self;
+}
+
+-(void)dealloc
+{
+	[tracks release];
+	[super dealloc];
 }
 
 -(void)addTrack:(NSDictionary*)track

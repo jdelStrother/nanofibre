@@ -5,6 +5,10 @@
 #ifdef __OBJC__
     #import <Cocoa/Cocoa.h>
 	
+	
+	// Rentzsh's handy enumeration macros.  http://rentzsch.com/papers/improvingCocoaObjCEnumeration
+	// Bring on Obj-C 2.0, please.
+	// NB - Doesn't nest very well
 	#define nsenumerate_getEnumerator( TYPE, OBJ )				\
 		(TYPE)([OBJ isKindOfClass:[NSEnumerator class]]			\
 		? OBJ													\
@@ -24,5 +28,4 @@
 		 ITERATOR_SYMBOL != nil;										\
 		 ITERATOR_SYMBOL = [((NSEnumerator*) enumerator) nextObject] )
 
-	
 #endif

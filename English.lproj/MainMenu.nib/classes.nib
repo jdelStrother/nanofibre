@@ -1,7 +1,7 @@
 {
     IBClasses = (
         {
-            ACTIONS = {makePlaylist = id; }; 
+            ACTIONS = {installDaemon = id; makePlaylist = id; }; 
             CLASS = AppController; 
             LANGUAGE = ObjC; 
             OUTLETS = {sizeLabel = NSTextField; window = NSWindow; }; 

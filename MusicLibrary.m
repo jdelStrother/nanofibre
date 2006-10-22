@@ -1,9 +1,9 @@
 //
 //  MusicLibrary.m
-//  Fibre
+//  NanoFibre
 //
 //  Created by Jonathan del Strother on 08/10/2006.
-//  Copyright 2006 Best Before Media Ltd. All rights reserved.
+//  Copyright 2006. All rights reserved.
 //
 
 #import "MusicLibrary.h"
@@ -104,17 +104,30 @@ static MusicLibrary* sharedLibrary = nil;
 	return sharedLibrary;
 }
 
-
+-(void)dealloc
+{
+	[albums release];
+	[libraryName release];
+	[super dealloc];
+}
 
 -(void)loadLibrary
 {
-	NSDictionary* xml = [NSDictionary dictionaryWithContentsOfFile:@"/Users/jon/Music/iTunes/iTunes Music Library.xml"];
+	// This isn't particularly robust : It doesn't handle music libraries in odd locations, or ones that are linked to the usual location with aliases.
+	NSString* libraryPath = [@"~/Music/iTunes/iTunes Music Library.xml" stringByExpandingTildeInPath];
+
+	NSDictionary* xml = [NSDictionary dictionaryWithContentsOfFile:libraryPath];
+	
+	if (!xml)
+	{
+		NSString* error = [NSString stringWithFormat:@"NanoFibre couldn't load your music library from %@. Sorry.", libraryPath];
+		NSRunAlertPanel(@"Couldn't load library", error, @"Quit",nil,nil);
+		[[NSApplication sharedApplication] terminate:self];
+	}	
 	
 	NSDictionary* tracks = [xml objectForKey:@"Tracks"];
-	NSEnumerator* trackEnum = [tracks objectEnumerator];
-	NSDictionary* track;
 	NSMutableDictionary* albumCollection = [NSMutableDictionary dictionary];
-	while(track=[trackEnum nextObject])
+	nsenumerat(tracks, track)
 	{
 		if ([track objectForKey:@"Disabled"])
 			continue;
@@ -122,10 +135,8 @@ static MusicLibrary* sharedLibrary = nil;
 		if (!album)
 		{
 			album = [[Album alloc] init];
-			NSString* albumTitle = [track objectForKey:@"Album"];
-			if (!albumTitle)
-				albumTitle = @"";
-			[albumCollection setObject:album forKey:albumTitle];
+
+			[albumCollection setObject:album forKey:[Album albumKeyForTrack:track]];
 			[album release];
 		}
 		
@@ -133,7 +144,7 @@ static MusicLibrary* sharedLibrary = nil;
 	}
 	
 	albums = [[albumCollection allValues] retain];
-	
+		
 	
 	
 	//Need to find the name of the Library playlist - varies for different countries.
@@ -149,24 +160,25 @@ static MusicLibrary* sharedLibrary = nil;
 	
 	if (!libraryName)
 	{
-		[NSException raise:@"No Master Library" format:@"Couldn't find the itunes master library"];
+		[NSException raise:@"No Master Library" format:@"Couldn't find the iTunes master library"];
 	}
 }
 
+
+// This is where we actually select some albums to play.
+// Could definitely be cleverer - it just deletes albums from the complete list until size<desiredSize.
+//  ie it doesn't try to match desiredSize as closely as possible, it doesn't bias towards highly rated albums etc etc.
 -(NSArray*)fibreSelection
 {
 	NSMutableArray* albumSelection = [albums mutableCopy];
 	float maxSize = [[[NSUserDefaults standardUserDefaults] valueForKey:@"maxSize"] floatValue]*gigabytes();
-	
-	NSLog(@"Filter out big tracked albums (KCRW)/low rated ones/unchecked ones here");
-	
-	
+		
 	while(totalSize(albumSelection) > maxSize)
 	{
 		[albumSelection removeObjectAtIndex:rand()%[albumSelection count]];
 	}
 	
-	NSLog(@"Album selection is %.3gGB", (float)(totalSize(albumSelection)/(1024.0*1024*1024)));
+	NSLog(@"Album selection is %.3gGB", totalSize(albumSelection)/(float)gigabytes());
 	
 	return [[albumSelection copy] autorelease];
 }
@@ -188,7 +200,7 @@ static MusicLibrary* sharedLibrary = nil;
 
 	NSDictionary *errorInfo = nil;
 	
-	/* We have to construct an AppleEvent descriptor to contain the arguments for our handler call.  Remember that this list is 1, rather than 0, based. */
+	// We have to construct an AppleEvent descriptor to contain the arguments for our handler call.  Remember that this list is 1, rather than 0, based
 	NSAppleEventDescriptor *list = [[NSAppleEventDescriptor alloc] initListDescriptor];
 	int index = 0;
 	[list insertDescriptor:[NSAppleEventDescriptor descriptorWithString:libraryName] atIndex:++index];
@@ -201,7 +213,7 @@ static MusicLibrary* sharedLibrary = nil;
 			[list insertDescriptor:pathDescriptor atIndex:++index];
 	}
 	
-	if (index > 1) //check that we actually have some tracks to play)
+	if (index > 1) //check that we actually have some tracks to play
 	{
 		
 		NSAppleEventDescriptor *arguments = [[NSAppleEventDescriptor alloc] initListDescriptor];
@@ -210,8 +222,7 @@ static MusicLibrary* sharedLibrary = nil;
 
 		errorInfo = nil;
 
-		/* Call the handler using the method in our special category */
-		NSAppleEventDescriptor *result = [script callHandler:@"launch_album" withArguments: arguments errorInfo: &errorInfo];
+		NSAppleEventDescriptor *result = [script callHandler:@"construct_playlist" withArguments: arguments errorInfo: &errorInfo];
 		#pragma unused(result)
 		
 		/* Check for errors in running the handler */
@@ -222,9 +233,7 @@ static MusicLibrary* sharedLibrary = nil;
 		[arguments release];
 	}
 	[list release];
-	
-	
-	
+		
 }
 
 @end

@@ -1,9 +1,9 @@
 /*
  *  main_daemon.c
- *  Fibre
+ *  NanoFibre
  *
  *  Created by Jonathan del Strother on 13/10/2006.
- *  Copyright 2006 Best Before Media Ltd. All rights reserved.
+ *  Copyright 2006. All rights reserved.
  *
  */
 
@@ -19,24 +19,22 @@ int main(int argc, char *argv[])
 	FSRef appRef;
 	if (LSFindApplicationForInfo(kLSUnknownCreator, CFSTR("com.steelskies.nanofibre"), NULL, &appRef, NULL ) == kLSApplicationNotFoundErr)
 	{
-		NSLog(@"Couldn't find Fibre app");
+		NSLog(@"Couldn't find NanoFibre app");
 		return 1;
 	}
-	
-	NSLog(@"launching %@", CFURLCreateFromFSRef( kCFAllocatorDefault, &appRef ));
 	
 	LSApplicationParameters appParams;
 	appParams.version = 0;
 	appParams.flags = kLSLaunchAsync | kLSLaunchDontSwitch | kLSLaunchDontAddToRecents | kLSLaunchAndHide;
 	appParams.application = &appRef;
 	appParams.asyncLaunchRefCon = NULL;
+	//Tell the app that we want to run in daemon mode.  We're using the environment vars to do this, because...
 	appParams.environment = (CFDictionaryRef)[NSDictionary dictionaryWithObject:@"yes" forKey:@"fibreDaemon"];
+	// ..."This field is ignored in Mac OS X v10.4".  Cheers guys.
 	appParams.argv = NULL;
 	appParams.initialEvent = NULL;
 	
 	LSOpenApplication(&appParams, NULL);
-
-//	LSLaunchRefSpec
 	
 	[pool release];
 	
