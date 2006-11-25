@@ -114,7 +114,7 @@ static MusicLibrary* sharedLibrary = nil;
 -(void)loadLibrary
 {
 	// This isn't particularly robust : It doesn't handle music libraries in odd locations, or ones that are linked to the usual location with aliases.
-	NSString* libraryPath = [@"~/Music/iTunes/iTunes Music Library.xml" stringByExpandingTildeInPath];
+	NSString* libraryPath = [[NSUserDefaults standardUserDefaults] objectForKey:@"iTunesXMLPath"];
 
 	NSDictionary* xml = [NSDictionary dictionaryWithContentsOfFile:libraryPath];
 	

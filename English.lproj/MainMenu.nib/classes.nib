@@ -4,7 +4,7 @@
             ACTIONS = {installDaemon = id; makePlaylist = id; }; 
             CLASS = AppController; 
             LANGUAGE = ObjC; 
-            OUTLETS = {sizeLabel = NSTextField; window = NSWindow; }; 
+            OUTLETS = {sizeField = NSTextField; sizeLabel = NSTextField; window = NSWindow; }; 
             SUPERCLASS = NSObject; 
         }, 
         {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }

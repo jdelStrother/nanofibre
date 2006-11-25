@@ -4,10 +4,17 @@
 #import "MusicLibrary.h"
 #import "HumanDiskSizeTransformer.h";
 
+@interface AppController(private)
+-(void)findITunesXML;
+@end
+
 @implementation AppController
 
 +(void)initialize
 {
+	NSDictionary* defaults = [NSDictionary dictionaryWithObject:[NSNumber numberWithFloat:3.5] forKey:@"maxSize"];	//3.5GB is about right for my 4GB nano...
+	[[NSUserDefaults standardUserDefaults] registerDefaults:defaults];
+
 	HumanDiskSizeTransformer* humanDiskSizeTransformer = [[HumanDiskSizeTransformer alloc] init];
 	[NSValueTransformer setValueTransformer:humanDiskSizeTransformer
                                 forName:@"HumanDiskSizeTransformer"];
@@ -19,24 +26,43 @@
 	// If we're running in daemon mode, just make the changes and leave.
 	if ([[[NSProcessInfo processInfo] environment] objectForKey:@"fibreDaemon"])
 	{
-		[self makePlaylist:self];
+		[[MusicLibrary sharedLibrary] createFibrePlaylist];
 		[[NSApplication sharedApplication] terminate:self];
 	}
 	else
 	{
+		[self findITunesXML];
 		[window makeKeyAndOrderFront:self];
 	}
 }
 
+- (void)controlTextDidChange:(NSNotification *)aNotification
+{
+	//It's a bit silly setting up cocoa bindings for the size controls, only to manually set it here...
+	//However, I can't figure out a way of persuading it to update the label on every keystroke otherwise.
+	NSString* sizeString = [[[[aNotification userInfo] objectForKey:@"NSFieldEditor"] textStorage] string];
+	NSNumber* size = [[NSValueTransformer valueTransformerForName:@"HumanDiskSizeTransformer"]  reverseTransformedValue:sizeString];
+	NSString* readableSize = [[NSValueTransformer valueTransformerForName:@"HumanDiskSizeTransformer"]  transformedValue:size];
+	if (readableSize)
+		[sizeLabel setStringValue:readableSize];
+}
 
 -(IBAction)makePlaylist:(id)sender
 {
+	//Persuade the text field to end editing, so the size value is committed:
+	[sizeField selectText:self];
+	
 	[[MusicLibrary sharedLibrary] createFibrePlaylist];
+	
+	NSRunAlertPanel(@"Playlist Generated", @"Take a look in iTunes, you should have a NanoFibre playlist ready and waiting for your iPod syncing needs.", @"OK", nil, nil);
 }
 
 
 -(IBAction)installDaemon:(id)sender
 {
+	//Persuade the text field to end editing, so the size value is committed:
+	[sizeField selectText:self];
+
 	if (NSRunAlertPanel(@"Install Daemon?",
 						@"This will install a daemon to /usr/local/bin, and a launch agent to ~/Library/LaunchAgents", 
 						@"Install",@"Cancel",nil) == NSAlertDefaultReturn)
@@ -108,5 +134,45 @@
 	return YES;
 }
 
+
+
+// This could use some love - it won't handle aliases etc.
+-(void)findITunesXML
+{
+	//Need to find the iTunes XML.  Start by checking previous results:	
+	BOOL libraryFound = NO;
+	NSString* pathToLibrary = [[NSUserDefaults standardUserDefaults] objectForKey:@"iTunesXMLPath"];
+	if (pathToLibrary && [[NSFileManager defaultManager] fileExistsAtPath:pathToLibrary])
+		return;	//We're good to go
+	
+	
+	//OK, we don't know where it is.  Check the obvious location:
+	pathToLibrary = [@"~/Music/iTunes/iTunes Music Library.xml" stringByExpandingTildeInPath];
+	if ([[NSFileManager defaultManager] fileExistsAtPath:pathToLibrary])
+		libraryFound = YES;
+		
+	//Still not found it?  Ask the user to locate it:
+	if (!libraryFound)
+	{
+		NSOpenPanel* openPanel = [NSOpenPanel openPanel];
+		[openPanel setTitle:@"Open iTunes Library"];
+		[openPanel setMessage:@"Where is your iTunes Music Library XML?"];
+		int panelResult = [openPanel runModalForTypes:[NSArray arrayWithObject:@"xml"]];
+		if (panelResult == NSOKButton)
+		{
+			pathToLibrary = [openPanel filename];
+			if ([[NSFileManager defaultManager] fileExistsAtPath:pathToLibrary])
+				libraryFound = YES;
+		}
+	}
+	
+	if (libraryFound)
+		[[NSUserDefaults standardUserDefaults] setObject:pathToLibrary forKey:@"iTunesXMLPath"];
+	else
+	{
+		NSRunAlertPanel(@"Oh dear", @"We couldn't find your iTunes XML.  Bad luck." ,@":(",nil,nil);
+		[[NSApplication sharedApplication] terminate:self];
+	}
+}
 
 @end
