@@ -9,6 +9,8 @@
 
 #import <Carbon/Carbon.h>
 #import <Cocoa/Cocoa.h>
+#import "MusicLibrary.h"
+#import <unistd.h>
 
 int main(int argc, char *argv[])
 {
@@ -23,20 +25,22 @@ int main(int argc, char *argv[])
 		return 1;
 	}
 	
-	LSApplicationParameters appParams;
-	appParams.version = 0;
-	appParams.flags = kLSLaunchAsync | kLSLaunchDontSwitch | kLSLaunchDontAddToRecents | kLSLaunchAndHide;
-	appParams.application = &appRef;
-	appParams.asyncLaunchRefCon = NULL;
-	//Tell the app that we want to run in daemon mode.  We're using the environment vars to do this, because...
-	appParams.environment = (CFDictionaryRef)[NSDictionary dictionaryWithObject:@"yes" forKey:@"fibreDaemon"];
-	// ..."This field is ignored in Mac OS X v10.4".  Cheers guys.
-	appParams.argv = NULL;
-	appParams.initialEvent = NULL;
+	CFURLRef url = CFURLCreateFromFSRef(kCFAllocatorDefault, &appRef);
+	if (!url)
+	{
+		NSLog(@"Couldn't convert fsref to pathname");
+		return 1;
+	}
 	
-	LSOpenApplication(&appParams, NULL);
+	NSString* pathName = (NSString *)CFURLCopyFileSystemPath(url, kCFURLPOSIXPathStyle);
+	CFRelease(url);
+	
+	NSString* executable = [pathName stringByAppendingString:@"/Contents/MacOS/NanoFibre"];
+	system([[NSString stringWithFormat:@"fibreDaemon=yes \"%@\"", executable] cStringUsingEncoding:NSUTF8StringEncoding]);
 	
 	[pool release];
+	
+	sleep(60);		//LaunchD is dumb and kills our daemon if it doesn't stay running for 60 seconds (TODO: Even in Leopard?)
 	
 	return 0;
 }
