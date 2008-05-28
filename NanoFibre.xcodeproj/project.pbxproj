@@ -256,9 +256,11 @@
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "NanoFibre" */;
+			compatibilityVersion = "Xcode 2.4";
 			hasScannedForEncodings = 1;
 			mainGroup = 29B97314FDCFA39411CA2CEA /* Spinner */;
 			projectDirPath = "";
+			projectRoot = "";
 			targets = (
 				8D1107260486CEB800E47090 /* NanoFibre */,
 				FC0F29A60AE04CD700C72116 /* fibred */,

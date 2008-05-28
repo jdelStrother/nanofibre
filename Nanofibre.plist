@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>Label</key>
-	<string>Nanofibre</string>
+	<string>com.steelskies.Nanofibre</string>
 	<key>Program</key>
 	<string>/usr/local/bin/fibred</string>
 	<key>ProgramArguments</key>
