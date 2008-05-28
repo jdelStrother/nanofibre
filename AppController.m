@@ -114,6 +114,8 @@
 				[[NSFileManager defaultManager] createDirectoryAtPath:dstAgentDir attributes:nil];
 				[[NSFileManager defaultManager] copyPath:srcAgent toPath:dstAgent handler:nil];
 				
+				[NSTask launchedTaskWithLaunchPath:@"/bin/launchctl" arguments:[NSArray arrayWithObjects:@"load", @"-w", dstAgent, nil]];
+				
 				if (![[NSFileManager defaultManager] fileExistsAtPath:dstAgent])
 				{
 					agentFailed = YES;
