@@ -1,13 +1,45 @@
-{
-    IBClasses = (
-        {
-            ACTIONS = {installDaemon = id; makePlaylist = id; }; 
-            CLASS = AppController; 
-            LANGUAGE = ObjC; 
-            OUTLETS = {sizeField = NSTextField; sizeLabel = NSTextField; window = NSWindow; }; 
-            SUPERCLASS = NSObject; 
-        }, 
-        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }
-    ); 
-    IBVersion = 1; 
-}
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IBClasses</key>
+	<array>
+		<dict>
+			<key>CLASS</key>
+			<string>FirstResponder</string>
+			<key>LANGUAGE</key>
+			<string>ObjC</string>
+			<key>SUPERCLASS</key>
+			<string>NSObject</string>
+		</dict>
+		<dict>
+			<key>ACTIONS</key>
+			<dict>
+				<key>installDaemon</key>
+				<string>id</string>
+				<key>makePlaylist</key>
+				<string>id</string>
+			</dict>
+			<key>CLASS</key>
+			<string>AppController</string>
+			<key>LANGUAGE</key>
+			<string>ObjC</string>
+			<key>OUTLETS</key>
+			<dict>
+				<key>arrayController</key>
+				<string>NSArrayController</string>
+				<key>sizeField</key>
+				<string>NSTextField</string>
+				<key>sizeLabel</key>
+				<string>NSTextField</string>
+				<key>window</key>
+				<string>NSWindow</string>
+			</dict>
+			<key>SUPERCLASS</key>
+			<string>NSObject</string>
+		</dict>
+	</array>
+	<key>IBVersion</key>
+	<string>1</string>
+</dict>
+</plist>
