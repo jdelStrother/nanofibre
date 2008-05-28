@@ -131,7 +131,7 @@ static MusicLibrary* sharedLibrary = nil;
 	{
 		if ([track objectForKey:@"Disabled"])
 			continue;
-		Album* album = [albumCollection objectForKey:[track objectForKey:@"Album"]];
+		Album* album = [albumCollection objectForKey:[Album albumKeyForTrack:track]];
 		if (!album)
 		{
 			album = [[Album alloc] init];
@@ -195,7 +195,6 @@ static MusicLibrary* sharedLibrary = nil;
 		[tracks addObjectsFromArray:[album tracks]];
 	}
 	
-
 	NSAppleScript *script = loadScript(scriptName);
 
 	NSDictionary *errorInfo = nil;
