@@ -142,6 +142,8 @@
 				NSString* dstAgentDir = [@"~/Library/LaunchAgents" stringByExpandingTildeInPath];
 				NSString* dstAgent = [dstAgentDir stringByAppendingPathComponent:@"Nanofibre.plist"];
 				[[NSFileManager defaultManager] createDirectoryAtPath:dstAgentDir attributes:nil];
+				if ([[NSFileManager defaultManager] fileExistsAtPath:dstAgent])
+					[[NSFileManager defaultManager] removeFileAtPath:dstAgent handler:nil];
 				[[NSFileManager defaultManager] copyPath:srcAgent toPath:dstAgent handler:nil];
 				
 				[NSTask launchedTaskWithLaunchPath:@"/bin/launchctl" arguments:[NSArray arrayWithObjects:@"load", @"-w", dstAgent, nil]];

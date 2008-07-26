@@ -10,12 +10,12 @@
 	<array>
 		<string>/usr/local/bin/fibred</string>
 	</array>
-	<key>ServiceDescription</key>
-	<string>Launch Nanofibre to generate nano-sized playlists</string>
 	<key>StartCalendarInterval</key>
 	<dict>
 		<key>Hour</key>
 		<integer>3</integer>
+		<key>Minute</key>
+		<integer>15</integer>
 	</dict>
 </dict>
 </plist>
