@@ -131,8 +131,11 @@
 -(NSArray*)tracks
 {
 	NSMutableArray* trackPaths = [NSMutableArray array];
-	nsenumerat(tracks, track)
-		[trackPaths addObject:[Album pathOfTrack:track]];
+	nsenumerat(tracks, track) {
+		NSString* path = [Album pathOfTrack:track];
+		if (path)
+			[trackPaths addObject:path];
+	}
 		
 	return [[trackPaths copy] autorelease];
 }
