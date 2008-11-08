@@ -128,7 +128,7 @@
 	return [[path copy] autorelease];
 }
 
--(NSArray*)tracks
+-(NSArray*)trackPaths
 {
 	NSMutableArray* trackPaths = [NSMutableArray array];
 	nsenumerat(tracks, track) {
@@ -138,6 +138,16 @@
 	}
 		
 	return [[trackPaths copy] autorelease];
+}
+
+-(NSArray*)trackIds
+{
+	NSMutableArray* trackIds = [NSMutableArray array];
+	nsenumerat(tracks, track) {
+		[trackIds addObject:[track objectForKey:@"Track ID"]];
+	}
+	
+	return [[trackIds copy] autorelease];
 }
 
 @end

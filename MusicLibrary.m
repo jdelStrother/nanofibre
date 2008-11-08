@@ -214,7 +214,7 @@ static MusicLibrary* sharedLibrary = nil;
 	NSArray* selection = [self fibreSelection];
 	nsenumerat(selection, album)
 	{
-		[tracks addObjectsFromArray:[album tracks]];
+		[tracks addObjectsFromArray:[album trackIds]];
 	}
 	
 	NSAppleScript *script = loadScript(scriptName);
@@ -227,11 +227,11 @@ static MusicLibrary* sharedLibrary = nil;
 	[list insertDescriptor:[NSAppleEventDescriptor descriptorWithString:libraryName] atIndex:++index];
 
 	//Add each track path to the argument list
-	nsenumerat(tracks, path)
+	nsenumerat(tracks, trackId)
 	{
-		NSAppleEventDescriptor* pathDescriptor = [NSAppleEventDescriptor aliasDescriptorWithString:path];
-		if (pathDescriptor)
-			[list insertDescriptor:pathDescriptor atIndex:++index];
+		NSAppleEventDescriptor* trackDescriptor = [NSAppleEventDescriptor descriptorWithInt:[trackId intValue]];
+		if (trackDescriptor)
+			[list insertDescriptor:trackDescriptor atIndex:++index];
 	}
 	
 	if (index > 1) //check that we actually have some tracks to play

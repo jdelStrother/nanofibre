@@ -45,5 +45,6 @@
 -(NSString*)artist;
 -(NSString*)sizeDescription;
 -(UInt64)byteSize;
--(NSArray*)tracks;
+-(NSArray*)trackPaths;
+-(NSArray*)trackIds;
 @end
